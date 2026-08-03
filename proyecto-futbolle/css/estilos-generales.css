@@ -1,0 +1,4 @@
+/* Clase utilitaria para ocultar elementos */
+.oculto {
+    display: none;
+}

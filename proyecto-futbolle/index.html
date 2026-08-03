@@ -9,6 +9,20 @@
 </head>
 <body>
     
+    <main id="pantalla-inicio" class="contenedor-inicio">
+        <h1>Bienvenido a Futbolle</h1>
+        <p>Adivina el jugador secreto en 8 intentos.</p>
+
+        <form id="formulario-inicio">
+            <label for="nombre-jugador">Ingresa tu nombre para jugar:</label>
+            <input type="text" id="nombre-jugador" placeholder="Ej: Leo" autocomplete="off">
+            
+            <button type="submit" id="boton-iniciar">Iniciar Partida</button>
+        </form>
+
+        <div id="mensaje-error" class="oculto"></div>
+    </main>
+
     <script src="js/logica-juego.js"></script>
 </body>
 </html>
