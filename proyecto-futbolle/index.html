@@ -22,6 +22,24 @@
 
         <div id="mensaje-error" class="oculto"></div>
     </main>
+<section id="tablero-juego" class="oculto">
+        <header id="cabecera-juego">
+            <h2>Adivina el Jugador</h2>
+            <div id="info-partida">
+                <p>Intentos restantes: <span id="contador-intentos">8</span></p>
+                <p>Tiempo: <span id="temporizador">00:00</span></p>
+            </div>
+        </header>
+
+        <div id="contenedor-buscador">
+            <label for="input-busqueda">Buscar jugador:</label>
+            <input type="text" id="input-busqueda" placeholder="Escribe un nombre..." autocomplete="off">
+            <ul id="lista-autocompletado" class="oculto"></ul>
+        </div>
+
+        <div id="contenedor-intentos">
+            </div>
+    </section>
 
     <script src="js/logica-juego.js"></script>
 </body>
