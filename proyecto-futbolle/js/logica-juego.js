@@ -5,6 +5,8 @@ var jugadorSeleccionado = null;
 var listaJugadoresBusqueda = [];
 var intentosRestantes = 8;
 var partidaIniciada = false;
+var temporizadorIntervalo = null;
+var segundosTranscurridos = 0;
 var formInicio = document.getElementById('formulario-inicio');
 var inputNombre = document.getElementById('nombre-jugador');
 var divError = document.getElementById('mensaje-error');
@@ -16,7 +18,8 @@ var botonAdivinar = document.getElementById('boton-adivinar');
 var historialIntentos = document.getElementById('historial-intentos');
 var cabeceraAtributos = document.getElementById('cabecera-atributos');
 var contadorIntentos = document.getElementById('contador-intentos');
-/* Funciones de Interfaz */
+var spanTemporizador = document.getElementById('temporizador');
+/* Funciones de Interfaz y Temporizador */
 function mostrarError(mensaje) {
     divError.textContent = mensaje;
     divError.classList.remove('oculto');
@@ -24,6 +27,27 @@ function mostrarError(mensaje) {
 function ocultarError() {
     divError.textContent = '';
     divError.classList.add('oculto');
+}
+function formatearTiempo(segundos) {
+    var min = Math.floor(segundos / 60);
+    var seg = segundos % 60;
+    var minStr = min < 10 ? '0' + min : min;
+    var segStr = seg < 10 ? '0' + seg : seg;
+    return minStr + ':' + segStr;
+}
+function actualizarTemporizador() {
+    segundosTranscurridos++;
+    spanTemporizador.textContent = formatearTiempo(segundosTranscurridos);
+}
+function detenerTemporizador() {
+    if (temporizadorIntervalo) {
+        clearInterval(temporizadorIntervalo);
+    }
+}
+function iniciarTemporizador() {
+    segundosTranscurridos = 0;
+    spanTemporizador.textContent = '00:00';
+    temporizadorIntervalo = setInterval(actualizarTemporizador, 1000);
 }
 /* Funciones de Creación de Elementos */
 function crearCajaAtributo(valor, esCorrecto) {
@@ -41,6 +65,7 @@ function finalizarJuego(mensaje) {
     mostrarError(mensaje);
     botonAdivinar.disabled = true;
     inputBusqueda.disabled = true;
+    detenerTemporizador();
 }
 function procesarIntento() {
     if (!jugadorSeleccionado) {
@@ -127,6 +152,7 @@ function guardarJugadorSecreto(datos) {
     pantallaInicio.classList.add('oculto');
     tableroJuego.classList.remove('oculto');
     console.log('Jugador secreto: ' + jugadorSecreto.name);
+    iniciarTemporizador();
 }
 function manejarErrorFetch(error) {
     mostrarError('Error de red. No se pudo conectar.');
