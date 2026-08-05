@@ -144,3 +144,27 @@ button {
     font-size: 12px;
     font-weight: bold;
 }
+.fila-intento {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.caja-atributo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14.28%;
+    padding: 15px 5px;
+    margin: 0 2px;
+    border-radius: 4px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+.caja-acierto {
+    background-color: #28a745;
+}
+.caja-fallo {
+    background-color: #dc3545;
+}
