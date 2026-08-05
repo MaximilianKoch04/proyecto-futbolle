@@ -33,13 +33,26 @@
 
         <div id="contenedor-buscador">
             <label for="input-busqueda">Buscar jugador:</label>
-            <input type="text" id="input-busqueda" placeholder="Escribe un nombre..." autocomplete="off">
+            <div class="fila-buscador">
+                <input type="text" id="input-busqueda" placeholder="Escribe un nombre..." autocomplete="off">
+                <button type="button" id="boton-adivinar">Adivinar</button>
+            </div>
             <ul id="lista-autocompletado" class="oculto"></ul>
         </div>
 
         <div id="contenedor-intentos">
+            <div id="cabecera-atributos" class="oculto">
+                <div class="atributo-titulo">Jugador</div>
+                <div class="atributo-titulo">Nación</div>
+                <div class="atributo-titulo">Liga</div>
+                <div class="atributo-titulo">Equipo</div>
+                <div class="atributo-titulo">Posición</div>
+                <div class="atributo-titulo">Edad</div>
+                <div class="atributo-titulo">Dorsal</div>
             </div>
-    </section>
+            
+            <div id="historial-intentos"></div>
+        </div>
 
     <script src="js/logica-juego.js"></script>
 </body>
