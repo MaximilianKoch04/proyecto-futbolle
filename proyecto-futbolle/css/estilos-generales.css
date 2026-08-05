@@ -72,3 +72,30 @@ button {
     color: #cc0000;
     font-size: 14px;
 }
+#contenedor-buscador {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+#lista-autocompletado {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    list-style-type: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 10;
+}
+#lista-autocompletado li {
+    padding: 10px;
+    border-bottom: 1px solid #eeeeee;
+    cursor: pointer;
+    color: #333333;
+    font-size: 14px;
+}
+#lista-autocompletado li:hover {
+    background-color: #f4f4f4;
+}
